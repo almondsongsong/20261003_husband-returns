@@ -390,14 +390,14 @@ body.light .episodes details:hover summary{color:#80634f}
 .hero-media{inset:0 var(--page-gutter);width:calc(100% - 2 * var(--page-gutter))}
 @media(max-width:720px){.section,.topbar{padding-inline:var(--page-gutter)}.hero-copy{left:var(--page-gutter)}}
 
-/* STORY 소개는 가운데, 현재 관계는 사진 높이의 중앙에 정렬 */
-.story-intro{text-align:center}
+/* STORY 문구는 왼쪽, 관계 기간만 가운데 정렬 */
+.story-intro{text-align:left}
 .story-intro .periods{margin-inline:auto}
-.story-intro .body-copy{margin-inline:auto}
+.story-intro .body-copy{margin-inline:0}
 .story-present{margin-top:72px}
-.story-present .present-layout{align-items:center}
+.story-present .present-layout{grid-template-columns:minmax(0,360px) minmax(0,1fr);align-items:center}
 .story-present .timeline li:last-child{padding-bottom:0}
-@media(max-width:720px){.story-present{margin-top:48px}}
+@media(max-width:720px){.story-present{margin-top:48px}.story-present .present-layout{grid-template-columns:1fr}.story-present .relationship-image{max-width:360px;margin-inline:auto}}
 
 </style>
 </head>
