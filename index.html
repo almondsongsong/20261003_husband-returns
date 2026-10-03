@@ -16,37 +16,70 @@ body{font-family:Arial,"Noto Sans KR",sans-serif}
   overflow:hidden;
   background:#151313;
 }
-.hero img{
+.hero-media{
   position:absolute;
   top:0;
   right:0;
   width:72%;
   height:100%;
+  overflow:visible;
+  z-index:1;
+}
+.hero-main,
+.hero-feather{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
   object-fit:contain;
   object-position:right center;
   display:block;
-  z-index:1;
+}
+.hero-main{
   -webkit-mask-image:linear-gradient(
     to right,
     transparent 0%,
-    rgba(0,0,0,.02) 8%,
-    rgba(0,0,0,.08) 16%,
-    rgba(0,0,0,.20) 26%,
-    rgba(0,0,0,.42) 38%,
-    rgba(0,0,0,.68) 50%,
-    rgba(0,0,0,.88) 62%,
-    #000 74%
+    rgba(0,0,0,.06) 10%,
+    rgba(0,0,0,.18) 20%,
+    rgba(0,0,0,.40) 32%,
+    rgba(0,0,0,.68) 44%,
+    rgba(0,0,0,.90) 56%,
+    #000 68%
   );
   mask-image:linear-gradient(
     to right,
     transparent 0%,
-    rgba(0,0,0,.02) 8%,
-    rgba(0,0,0,.08) 16%,
-    rgba(0,0,0,.20) 26%,
-    rgba(0,0,0,.42) 38%,
-    rgba(0,0,0,.68) 50%,
-    rgba(0,0,0,.88) 62%,
-    #000 74%
+    rgba(0,0,0,.06) 10%,
+    rgba(0,0,0,.18) 20%,
+    rgba(0,0,0,.40) 32%,
+    rgba(0,0,0,.68) 44%,
+    rgba(0,0,0,.90) 56%,
+    #000 68%
+  );
+}
+.hero-feather{
+  left:-10%;
+  width:110%;
+  filter:blur(28px);
+  transform:scale(1.02);
+  opacity:.72;
+  -webkit-mask-image:linear-gradient(
+    to right,
+    transparent 0%,
+    rgba(0,0,0,.10) 12%,
+    rgba(0,0,0,.34) 24%,
+    rgba(0,0,0,.62) 36%,
+    rgba(0,0,0,.34) 48%,
+    transparent 60%
+  );
+  mask-image:linear-gradient(
+    to right,
+    transparent 0%,
+    rgba(0,0,0,.10) 12%,
+    rgba(0,0,0,.34) 24%,
+    rgba(0,0,0,.62) 36%,
+    rgba(0,0,0,.34) 48%,
+    transparent 60%
   );
 }
 .hero-past{
@@ -65,17 +98,17 @@ body{font-family:Arial,"Noto Sans KR",sans-serif}
   inset:0;
   z-index:2;
   pointer-events:none;
-  background:linear-gradient(
-    to right,
-    rgba(21,19,19,.08) 0%,
-    rgba(21,19,19,.04) 38%,
-    rgba(21,19,19,.02) 66%,
-    rgba(21,19,19,0) 100%
-  );
+  background:
+    linear-gradient(
+      to right,
+      rgba(21,19,19,.40) 0%,
+      rgba(21,19,19,.24) 34%,
+      rgba(21,19,19,.10) 52%,
+      rgba(21,19,19,.02) 72%,
+      rgba(21,19,19,0) 100%
+    );
 }
-.hero-left-shade{
-  display:none;
-}
+
 .hero-bottom-fade{
   position:absolute;
   left:0;
@@ -158,38 +191,49 @@ body{font-family:Arial,"Noto Sans KR",sans-serif}
     height:72vh;
     min-height:560px;
   }
-  .hero img{
+  .hero-media{
+    width:100%;
+  }
+  .hero-main,
+  .hero-feather{
     width:100%;
     height:100%;
     object-fit:contain;
     object-position:right center;
+  }
+  .hero-main{
     -webkit-mask-image:linear-gradient(
       to right,
       transparent 0%,
-      rgba(0,0,0,.03) 10%,
-      rgba(0,0,0,.12) 22%,
-      rgba(0,0,0,.34) 36%,
-      rgba(0,0,0,.64) 50%,
-      rgba(0,0,0,.86) 62%,
-      #000 74%
+      rgba(0,0,0,.08) 14%,
+      rgba(0,0,0,.24) 28%,
+      rgba(0,0,0,.52) 42%,
+      rgba(0,0,0,.82) 56%,
+      #000 68%
     );
     mask-image:linear-gradient(
       to right,
       transparent 0%,
-      rgba(0,0,0,.03) 10%,
-      rgba(0,0,0,.12) 22%,
-      rgba(0,0,0,.34) 36%,
-      rgba(0,0,0,.64) 50%,
-      rgba(0,0,0,.86) 62%,
-      #000 74%
+      rgba(0,0,0,.08) 14%,
+      rgba(0,0,0,.24) 28%,
+      rgba(0,0,0,.52) 42%,
+      rgba(0,0,0,.82) 56%,
+      #000 68%
     );
+  }
+  .hero-feather{
+    left:-14%;
+    width:114%;
+    filter:blur(24px);
+    opacity:.74;
   }
   .hero-tone{
     background:linear-gradient(
       to right,
-      rgba(21,19,19,.08) 0%,
-      rgba(21,19,19,.03) 58%,
-      rgba(21,19,19,0) 100%
+      rgba(21,19,19,.52) 0%,
+      rgba(21,19,19,.30) 34%,
+      rgba(21,19,19,.12) 58%,
+      rgba(21,19,19,0) 82%
     );
   }
   .hero-copy{
@@ -206,11 +250,15 @@ body{font-family:Arial,"Noto Sans KR",sans-serif}
 <body>
 
 <section class="hero">
-  <img class="hero-past" src="./assets/hero-warm.png" alt="">
-  <img class="hero-present" src="./assets/hero-dark.png" alt="">
+  <div class="hero-media">
+    <img class="hero-past hero-main" src="./assets/hero-warm.png" alt="">
+    <img class="hero-present hero-main" src="./assets/hero-dark.png" alt="">
+
+    <img class="hero-past hero-feather" src="./assets/hero-warm.png" alt="">
+    <img class="hero-present hero-feather" src="./assets/hero-dark.png" alt="">
+  </div>
 
   <div class="hero-tone"></div>
-  <div class="hero-left-shade"></div>
   <div class="hero-bottom-fade"></div>
 
   <div class="hero-copy">
