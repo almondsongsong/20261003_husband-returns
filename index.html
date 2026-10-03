@@ -130,7 +130,7 @@ body{font-family:Arial,"Noto Sans KR",sans-serif}
 }
 
 .hero-desc{
-  margin:14px 0 0;
+  margin:12px 0 0;
   font-size:calc(clamp(12px,1.05vw,16px) + 2px);
   line-height:1.85;
   color:#cbbfbb;
@@ -467,6 +467,17 @@ html {
     margin-inline: var(--page-gutter);
   }
 }
+.heading {
+  font-family: "Noto Serif KR", Batang, "바탕", serif;
+  font-weight: 400;
+}
+  #story .story-intro > .heading {
+  margin-bottom: 0;
+}
+
+#story .story-present {
+  margin-top: 20px;
+}
 </style>
 </head>
 <body>
@@ -540,9 +551,15 @@ html {
   <div class="hero-copy">
     <p class="hero-eyebrow">FORGOTTEN, THEN FOUND</p>
     <h1 class="hero-title">이혼했는데<br>남편이 돌아왔다</h1>
-    <p class="hero-desc">이혼 8개월 후,<br>전남편이 사고로 기억을 잃었다.<br>그런데 그는 아직도 나를 아내라고 부른다.</p>
-    <p class="hero-quote">우리가 끝난 걸<br>당신만 모른다.</p>
+      <div class="body-copy">
+    <p>세 해를 사랑했고, 네 해를 함께 살았다.<br>그리고 여덟 달 전, 우리는 부부가 아니게 되었다.</p>
+    <p>교통사고 후 다시 만난 이도현은 최근 약 3년의 기억을 잃었다. 결혼이 무너져 가던 시간도, 끝내 이혼을 선택한 순간도. 그의 기억은 아직 당신을 사랑하던 결혼 생활에 멈춰 있다.</p>
+    <p>그에게 당신은 여전히 아내다.<br>당신에게 그는 이미 떠나보낸 남편이다.</p>
+    <p>잊은 사람과 잊지 못한 사람.<br>서로 다른 시간을 안고, 두 사람은 다시 마주한다.</p>
   </div>
+    <!--<p class="hero-desc">이혼 8개월 후,<br>전남편이 사고로 기억을 잃었다.<br>그런데 그는 아직도 나를 아내라고 부른다.</p>
+    <p class="hero-quote">우리가 끝난 걸<br>당신만 모른다.</p>
+  </div>-->
 </section>
 
 
@@ -551,7 +568,7 @@ html {
   <div class="story-intro">
   <p class="kicker">STORY</p>
   <h2 class="heading">한 사람에게는 어제였고,<br>한 사람에게는 이미 끝난 사랑.</h2>
-  <div class="periods" aria-label="두 사람의 관계 기간">
+  <!--<div class="periods" aria-label="두 사람의 관계 기간">
     <div><span>연애</span><strong>3년</strong></div>
     <div><span>결혼</span><strong>4년</strong></div>
     <div><span>이혼 후</span><strong>8개월</strong></div>
@@ -561,7 +578,7 @@ html {
     <p>교통사고 후 다시 만난 이도현은 최근 약 3년의 기억을 잃었다. 결혼이 무너져 가던 시간도, 끝내 이혼을 선택한 순간도. 그의 기억은 아직 당신을 사랑하던 결혼 생활에 멈춰 있다.</p>
     <p>그에게 당신은 여전히 아내다.<br>당신에게 그는 이미 떠나보낸 남편이다.</p>
     <p>잊은 사람과 잊지 못한 사람.<br>서로 다른 시간을 안고, 두 사람은 다시 마주한다.</p>
-  </div>
+  </div> -->
   </div>
 
   <!-- 현재 관계: STORY 안에서 이어지는 이미지와 타임라인 -->
@@ -571,7 +588,7 @@ html {
       <img class="relationship-image" src="https://almondsongsong.github.io/20261003_husband-returns/assets/서로째려보는.png" alt="서로를 마주 보며 긴장한 이도현과 당신" loading="lazy" width="887" height="1774">
     </div>
     <div>
-      <h2 class="heading">같은 사람.<br>다른 시간.</h2>
+      <!--<h2 class="heading">같은 사람.<br>다른 시간.</h2>-->
       <div class="body-copy"><p>익숙하게 당신을 부르는 목소리와,<br>그 호칭을 받아들일 수 없는 당신.<br>가까웠던 만큼, 지금의 거리는 쉽게 좁혀지지 않는다.</p></div>
       <ol class="timeline">
         <li><small>LOVE / 3 YEARS</small><h3>서로를 선택했던 시간</h3><p>연인이었던 두 사람은 함께할 미래를 믿었다.</p></li>
@@ -635,9 +652,9 @@ html {
     <li><strong>관계의 결말은 정해져 있지 않습니다.</strong>기억상실은 과거의 책임을 지우지 않습니다. 재결합과 이별 모두 당신이 선택할 수 있습니다.</li>
   </ul>
   <p class="closing">그가 돌아왔다.<br>이제, 당신은 어떤 마음으로 문을 열 것인가.</p>
-  <!-- 티키타 작품 링크: 공개 URL 준비 후 주석 해제하고 href 교체
+  <!-- 티키타 작품 링크: 공개 URL 준비 후 주석 해제하고 href 교체-->
   <a class="tikita-cta" href="TIKITA_STORY_URL" target="_blank" rel="noopener noreferrer">티키타에서 이야기 시작하기 <span aria-hidden="true">↗</span></a>
-  -->
+  
 </section>
 
 
