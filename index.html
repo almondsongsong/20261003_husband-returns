@@ -173,6 +173,46 @@ body{font-family:Arial,"Noto Sans KR",sans-serif}
     width: 52%; /* 텍스트가 왼쪽 영역 안에 예쁘게 들어가도록 고정 */
   }
 }
+
+/* 02–06: HERO 이후 본문 */
+.section{padding:90px 8%;max-width:1280px;margin:auto}
+.kicker{font-size:11px;letter-spacing:4px;color:#aa8e87;margin:0 0 22px}
+.heading{font-family:Batang,"바탕",Georgia,serif;font-weight:400;font-size:clamp(25px,3vw,40px);line-height:1.6;margin:0 0 28px}
+.body-copy{max-width:680px;color:#bfb4af;font-size:15px;line-height:2}
+.periods{display:flex;gap:36px;margin:32px 0;color:#cbbfbb}
+.periods span{display:block;font-size:11px;letter-spacing:2px;margin-bottom:8px;color:#aa8e87}
+.periods strong{font-family:Batang,"바탕",serif;font-size:28px;font-weight:400}
+.present-layout{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
+.image-slot{border:1px solid #3b302e;min-height:300px;display:grid;place-items:center;color:#aa8e87;font-size:12px;background:#1a1717}
+.relationship-image{display:block;width:100%;height:auto}
+.timeline{list-style:none;margin:35px 0 0;padding:0 0 0 22px;border-left:1px solid #4a3934}
+.timeline li{position:relative;padding:0 0 30px 12px}
+.timeline li::before{content:"";position:absolute;width:7px;height:7px;background:#b88e80;border-radius:50%;left:-26px;top:8px}
+.timeline small{display:block;color:#aa8e87;font-size:10px;letter-spacing:2px;margin-bottom:7px}
+.timeline h3{font-size:16px;font-weight:400;margin:0 0 8px}
+.timeline p{font-size:13px;color:#bfb4af;line-height:1.9;margin:0}
+.two-columns{display:grid;grid-template-columns:1fr 1fr;gap:60px}
+.character{border-top:1px solid #463631;padding-top:28px}
+.character-image{display:block;width:100%;max-width:360px;height:auto;margin:0 0 28px}
+.character h3{font-family:Batang,"바탕",serif;font-size:28px;font-weight:400;margin:12px 0}
+.character p{color:#bfb4af;line-height:2;font-size:14px}
+.character small{color:#aa8e87;letter-spacing:2px;font-size:11px}
+.character blockquote{margin:28px 0 0;color:#dfc6bd;line-height:1.9}
+.episodes{border-top:1px solid #463631}
+.episodes details{border-bottom:1px solid #463631;padding:22px 0}
+.episodes summary{cursor:pointer;font-size:16px;line-height:1.7;list-style:none;position:relative;padding-right:32px}
+.episodes summary::-webkit-details-marker{display:none}
+.episodes summary::marker{content:""}
+.episodes summary::after{content:"+";position:absolute;right:0;top:0;color:#aa8e87;font-size:22px;line-height:1.3;font-weight:400}
+.episodes summary span{font-size:10px;color:#aa8e87;letter-spacing:2px;display:inline-block;width:65px}
+.episodes p{max-width:680px;color:#bfb4af;font-size:14px;line-height:2}
+.guide-list{padding:0;list-style:none}
+.guide-list li{padding:20px 0;border-top:1px solid #463631;color:#bfb4af;font-size:14px;line-height:1.9}
+.guide-list strong{display:block;color:#eadbd7;font-weight:400;margin-bottom:6px}
+.closing{border-left:2px solid #b88e80;padding-left:22px;margin-top:55px;font-family:Batang,"바탕",serif;font-size:22px;line-height:1.8;color:#dfc6bd}
+@media(max-width:720px){.section{padding:65px 7%}.present-layout,.two-columns{grid-template-columns:1fr;gap:36px}.periods{gap:28px}.periods strong{font-size:24px}}
+@media(prefers-reduced-motion:reduce){.hero-present{animation:none}}
+
 </style>
 </head>
 <body>
@@ -180,8 +220,8 @@ body{font-family:Arial,"Noto Sans KR",sans-serif}
 <section class="hero">
   <div class="src-media hero-media">
     <!-- 비교를 위한 같은 사진 & 색감 차이 적용 -->
-    <img class="hero-past hero-main" src="./assets/hero-warm.png" alt="">
-    <img class="hero-present hero-main" src="./assets/hero-dark.png" alt="">
+    <img class="hero-past hero-main" src="https://almondsongsong.github.io/20261003_husband-returns/assets/hero-warm.png" alt="">
+    <img class="hero-present hero-main" src="https://almondsongsong.github.io/20261003_husband-returns/assets/hero-dark.png" alt="">
   </div>
 
   <div class="hero-tone"></div>
@@ -195,17 +235,94 @@ body{font-family:Arial,"Noto Sans KR",sans-serif}
   </div>
 </section>
 
-<section class="story">
-  <p class="story-label">STORY</p>
-  <h2 class="story-title">한 사람에게는 어제였고,<br>한 사람에게는 이미 끝난 사랑.</h2>
-  <p class="story-text">
-    연애 3년, 결혼 4년.<br>
-    우리는 분명 끝났다.<br><br>
-    그가 기억하지 못하는 약 3년 동안 우리의 결혼은 서서히 무너졌고,
-    결국 서로 다른 길을 선택했다.<br><br>
-    그런데 사고 후 다시 만난 그는 우리가 가장 행복했던 시절에 멈춰 있었다.
-  </p>
+
+<!-- 02 STORY: 이미지 없이 텍스트 중심 -->
+<section class="section" id="story">
+  <p class="kicker">STORY</p>
+  <h2 class="heading">한 사람에게는 어제였고,<br>한 사람에게는 이미 끝난 사랑.</h2>
+  <div class="periods" aria-label="두 사람의 관계 기간">
+    <div><span>연애</span><strong>3년</strong></div>
+    <div><span>결혼</span><strong>4년</strong></div>
+    <div><span>이혼 후</span><strong>8개월</strong></div>
+  </div>
+  <div class="body-copy">
+    <p>세 해를 사랑했고, 네 해를 함께 살았다.<br>그리고 여덟 달 전, 우리는 부부가 아니게 되었다.</p>
+    <p>교통사고 후 다시 만난 이도현은 최근 약 3년의 기억을 잃었다. 결혼이 무너져 가던 시간도, 끝내 이혼을 선택한 순간도. 그의 기억은 아직 당신을 사랑하던 결혼 생활에 멈춰 있다.</p>
+    <p>그에게 당신은 여전히 아내다.<br>당신에게 그는 이미 떠나보낸 남편이다.</p>
+    <p>잊은 사람과 잊지 못한 사람.<br>서로 다른 시간을 안고, 두 사람은 다시 마주한다.</p>
+  </div>
 </section>
+
+<!-- 03 RELATIONSHIP / PRESENT: 현재 관계 이미지 + 타임라인 -->
+<section class="section" id="relationship">
+  <p class="kicker">RELATIONSHIP · PRESENT</p>
+  <div class="present-layout">
+    <div>
+      <img class="relationship-image" src="https://almondsongsong.github.io/20261003_husband-returns/assets/서로째려보는.png" alt="서로를 마주 보며 긴장한 이도현과 당신" loading="lazy" width="887" height="1774">
+    </div>
+    <div>
+      <h2 class="heading">같은 사람.<br>다른 시간.</h2>
+      <div class="body-copy"><p>익숙하게 당신을 부르는 목소리와,<br>그 호칭을 받아들일 수 없는 당신.<br>가까웠던 만큼, 지금의 거리는 쉽게 좁혀지지 않는다.</p></div>
+      <ol class="timeline">
+        <li><small>LOVE / 3 YEARS</small><h3>서로를 선택했던 시간</h3><p>연인이었던 두 사람은 함께할 미래를 믿었다.</p></li>
+        <li><small>MARRIAGE / 4 YEARS</small><h3>같은 집, 멀어진 마음</h3><p>함께 사는 동안 두 사람의 관계는 서서히 무너졌다. 그 이유를 당신은 기억하고 있다.</p></li>
+        <li><small>DIVORCE / 8 MONTHS AGO</small><h3>끝내 다른 길을 택한 날</h3><p>두 사람은 이혼했다. 당신은 그 이후의 시간을 살아왔다.</p></li>
+        <li><small>NOW / PRESENT</small><h3>그만 모르는 이별</h3><p>사고 후 그는 행복했던 결혼을 기억한다. 당신은 이혼까지 기억한다. 다시 만났지만, 관계의 시작점은 다르다.</p></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- 04 CHARACTER -->
+<section class="section" id="character">
+  <p class="kicker">CHARACTER</p>
+  <h2 class="heading">그가 기억하는 우리.<br>당신이 기억하는 우리.</h2>
+  <div class="two-columns">
+    <article class="character">
+      <img class="character-image" src="https://almondsongsong.github.io/20261003_husband-returns/assets/char.png" alt="이도현의 초상" loading="lazy" width="1121" height="1403">
+      <small>EX-HUSBAND / ARCHITECT</small>
+      <h3>이도현</h3>
+      <p>34세 · 건축가</p>
+      <p>사고로 최근 약 3년의 기억을 잃은 전남편. 그에게 당신은 여전히 함께 돌아갈 집이 있는 아내다. 익숙한 마음으로 다가가지만, 당신이 물러설 때마다 자신이 모르는 시간이 두 사람 사이에 놓여 있음을 마주한다.</p>
+      <blockquote>그가 기억하는 사랑은,<br>당신이 기억하는 결혼의 전부가 아니다.</blockquote>
+    </article>
+    <article class="character">
+      <small>YOU / EX-WIFE</small>
+      <h3>당신</h3>
+      <p>32세 · 프리랜서 브랜드 콘텐츠 기획자</p>
+      <p>이도현과 이혼한 지 8개월. 행복했던 시절과 관계가 무너진 이유를 모두 기억한다. 다시 다정해진 그를 마주하는 마음은 단순하지 않다. 과거를 이야기할지, 거리를 지킬지, 그와 어떤 관계를 맺을지는 당신이 결정한다.</p>
+      <blockquote>그가 잊었다고 해서,<br>당신이 겪은 시간이 사라지지는 않는다.</blockquote>
+    </article>
+  </div>
+</section>
+
+<!-- 05 EPISODE: 소개문 초안 -->
+<section class="section" id="episode">
+  <p class="kicker">EPISODE</p>
+  <h2 class="heading">끝난 뒤에 시작되는 이야기.</h2>
+  <div class="episodes">
+    <details open><summary><span>EP 01</span>사고 후 재회</summary><p>이혼 8개월 후, 사고 소식으로 다시 마주한 전남편. 그는 당신을 아내라고 부른다. 두 사람이 이미 헤어졌다는 사실을 전하며, 서로 다른 기억 속에서 첫 대화를 시작한다.</p></details>
+    <details><summary><span>EP 02</span>익숙한 타인</summary><p>당신을 대하는 그의 태도는 익숙하지만, 지금의 관계는 낯설다. 남아 있는 습관과 달라진 경계 사이에서 두 사람은 현재의 거리를 확인한다.</p></details>
+    <details><summary><span>EP 03</span>무너진 이유</summary><p>그가 잃어버린 시간 속에는 결혼이 무너진 이유가 있다. 당신이 기억하는 일들을 통해, 그는 자신이 알지 못하는 과거의 모습을 마주한다.</p></details>
+    <details><summary><span>EP 04</span>남겨진 상처</summary><p>쉽게 꺼내지 못했던 상처와 책임을 이야기한다. 기억하지 못한다는 말로 지나갈 수 없는 시간 앞에서, 두 사람은 서로의 말을 듣는다.</p></details>
+    <details><summary><span>EP 05</span>현재의 우리</summary><p>과거의 부부로 돌아갈 수 있는지보다, 지금 어떤 관계를 선택할지를 묻는다. 다시 함께할지, 각자의 길을 갈지. 결말은 당신의 선택과 두 사람의 대화로 만들어진다.</p></details>
+  </div>
+</section>
+
+<!-- 06 PLAY GUIDE -->
+<section class="section" id="play-guide">
+  <p class="kicker">PLAY GUIDE</p>
+  <h2 class="heading">돌아온 사람을,<br>다시 사랑해야 할 의무는 없으니까.</h2>
+  <ul class="guide-list">
+    <li><strong>당신은 이도현의 전처입니다.</strong>행복했던 기억과 이혼에 이른 시간을 모두 아는 입장에서 대화하세요.</li>
+    <li><strong>두 사람의 기억은 같은 지점에 있지 않습니다.</strong>그는 최근 약 3년을 기억하지 못합니다. 그의 다정함에 흔들리거나, 현재의 관계를 분명하게 알려주셔도 좋습니다.</li>
+    <li><strong>말할 시점과 거리감을 선택하세요.</strong>과거를 바로 꺼내도, 준비될 때까지 거리를 두어도 됩니다. 질문과 대화로 그가 모르는 시간을 하나씩 마주할 수 있습니다.</li>
+    <li><strong>관계의 결말은 정해져 있지 않습니다.</strong>기억상실은 과거의 책임을 지우지 않습니다. 재결합과 이별 모두 당신이 선택할 수 있습니다.</li>
+  </ul>
+  <p class="closing">그가 돌아왔다.<br>이제, 당신은 어떤 마음으로 문을 열 것인가.</p>
+</section>
+
 
 </body>
 </html>
+
