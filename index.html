@@ -1,2 +1,122 @@
-<img src="./assets/hero-warm.png">
-<img src="./assets/hero-dark.png">
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>이혼했는데 남편이 돌아왔다</title>
+<style>
+*{box-sizing:border-box}
+html,body{margin:0;background:#151313;color:#f3ece9}
+body{font-family:Arial,"Noto Sans KR",sans-serif}
+.hero{
+  position:relative;
+  width:100%;
+  aspect-ratio:16/9;
+  min-height:420px;
+  overflow:hidden;
+  background:#151313;
+}
+.hero img{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center;
+  display:block;
+}
+.hero-past{
+  filter:sepia(.30) saturate(1.18) brightness(1.08) contrast(.96);
+  transform:scale(1.002);
+}
+.hero-present{
+  filter:saturate(.72) brightness(.68) contrast(1.06);
+  -webkit-mask-image:linear-gradient(
+    to right,
+    transparent 8%,
+    rgba(0,0,0,.05) 22%,
+    rgba(0,0,0,.18) 36%,
+    rgba(0,0,0,.42) 50%,
+    rgba(0,0,0,.70) 66%,
+    #000 84%
+  );
+  mask-image:linear-gradient(
+    to right,
+    transparent 8%,
+    rgba(0,0,0,.05) 22%,
+    rgba(0,0,0,.18) 36%,
+    rgba(0,0,0,.42) 50%,
+    rgba(0,0,0,.70) 66%,
+    #000 84%
+  );
+}
+.hero::after{
+  content:"";
+  position:absolute;
+  inset:auto 0 0 0;
+  height:34%;
+  background:linear-gradient(to bottom,transparent 0%,rgba(21,19,19,.28) 38%,#151313 100%);
+  pointer-events:none;
+  z-index:3;
+}
+.shade{
+  position:absolute;
+  inset:0;
+  background:linear-gradient(to right,rgba(10,8,8,.34) 0%,rgba(10,8,8,.12) 40%,rgba(10,8,8,.12) 65%,rgba(10,8,8,.32) 100%);
+  z-index:2;
+  pointer-events:none;
+}
+.copy{
+  position:absolute;
+  left:7%;
+  bottom:13%;
+  z-index:4;
+  width:min(520px,48%);
+  text-shadow:0 2px 16px rgba(0,0,0,.5);
+}
+.eyebrow{margin:0 0 10px;font-size:10px;letter-spacing:4px;color:#d6b6ae}
+h1{margin:0;font:400 clamp(30px,4.6vw,64px)/1.28 Georgia,"Times New Roman",serif;letter-spacing:-1px}
+.quote{margin:18px 0 0;font-size:clamp(14px,1.5vw,20px);line-height:1.7;color:#eadbd7}
+.desc{margin:14px 0 0;font-size:clamp(11px,1.05vw,14px);line-height:1.85;color:#cbbfbb}
+.story{background:#151313;padding:72px 8% 100px}
+.story .label{margin:0 0 16px;font-size:10px;letter-spacing:5px;color:#aa8e87}
+.story h2{margin:0 0 22px;font:400 30px/1.5 Georgia,"Times New Roman",serif;color:#f2ebe7}
+.story p{margin:0;max-width:640px;font-size:14px;line-height:1.95;color:#bfb4af}
+@media(max-width:720px){
+  .hero{aspect-ratio:auto;height:72vh;min-height:560px}
+  .hero img{object-position:center}
+  .copy{left:7%;right:7%;bottom:10%;width:auto}
+  h1{font-size:38px}
+  .story{padding:58px 7% 80px}
+}
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <img class="hero-past" src="https://raw.githubusercontent.com/almondsongsong/20261003_husband-returns/main/assets/hero-dark.png" alt="">
+  <img class="hero-present" src="https://raw.githubusercontent.com/almondsongsong/20261003_husband-returns/main/assets/hero-dark.png" alt="">
+  <div class="shade"></div>
+
+  <div class="copy">
+    <p class="eyebrow">ORIGINAL STORY BY ALMONDSONGSONG</p>
+    <h1>이혼했는데<br>남편이 돌아왔다</h1>
+    <p class="quote">“우리가 끝난 걸<br>당신만 모른다.”</p>
+    <p class="desc">이혼 8개월 후,<br>전남편이 사고로 기억을 잃었다.<br>그런데 그는 아직도 나를 아내라고 부른다.</p>
+  </div>
+</section>
+
+<section class="story">
+  <p class="label">STORY</p>
+  <h2>한 사람에게는 어제였고,<br>한 사람에게는 이미 끝난 사랑.</h2>
+  <p>
+    연애 3년, 결혼 4년.<br>
+    우리는 분명 끝났다.<br><br>
+    그가 기억하지 못하는 약 3년 동안 우리의 결혼은 서서히 무너졌고,
+    결국 서로 다른 길을 선택했다.<br><br>
+    그런데 사고 후 다시 만난 그는 우리가 가장 행복했던 시절에 멈춰 있었다.
+  </p>
+</section>
+
+</body>
+</html>
