@@ -390,14 +390,25 @@ body.light .episodes details:hover summary{color:#80634f}
 .hero-media{inset:0 var(--page-gutter);width:calc(100% - 2 * var(--page-gutter))}
 @media(max-width:720px){.section,.topbar{padding-inline:var(--page-gutter)}.hero-copy{left:var(--page-gutter)}}
 
-/* STORY 문구는 왼쪽, 관계 기간만 가운데 정렬 */
-.story-intro{text-align:left}
-.story-intro .periods{margin-inline:auto}
-.story-intro .body-copy{margin-inline:0}
-.story-present{margin-top:72px}
+/* STORY: 왼쪽 서사와 오른쪽 관계 기간을 하나의 흐름으로 배치 */
+.story-intro{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);column-gap:64px;text-align:left;align-items:center}
+.story-intro>.kicker,.story-intro>.heading{grid-column:1/-1}
+.story-intro>.heading{margin-bottom:36px}
+.story-intro>.body-copy{grid-column:1;grid-row:3;margin:0;max-width:600px;font-size:14px;line-height:2}
+.story-intro>.body-copy p:first-child{margin-top:0}
+.story-intro>.body-copy p:last-child{margin-bottom:0;color:var(--gold)}
+.story-intro>.periods{grid-column:2;grid-row:3;width:100%;max-width:400px;margin:0 auto;gap:0}
+.story-intro .periods strong{font-size:clamp(24px,2.4vw,32px)}
+.story-present{margin-top:48px;padding-top:48px;border-top:1px solid var(--line)}
 .story-present .present-layout{grid-template-columns:minmax(0,360px) minmax(0,1fr);align-items:center}
 .story-present .timeline li:last-child{padding-bottom:0}
-@media(max-width:720px){.story-present{margin-top:48px}.story-present .present-layout{grid-template-columns:1fr}.story-present .relationship-image{max-width:360px;margin-inline:auto}}
+@media(max-width:900px){
+ .story-intro{display:flex;flex-direction:column;align-items:stretch}
+ .story-intro>.heading{margin-bottom:24px}
+ .story-intro>.periods{order:2;max-width:480px;margin:32px auto 0}
+ .story-intro>.body-copy{max-width:680px}
+}
+@media(max-width:720px){.story-present{margin-top:36px;padding-top:36px}.story-present .present-layout{grid-template-columns:1fr}.story-present .relationship-image{max-width:360px;margin-inline:auto}}
 
 </style>
 </head>
