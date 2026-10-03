@@ -38,24 +38,24 @@ body{font-family:Arial,"Noto Sans KR",sans-serif}
   object-position:right center;
   display:block;
 
-  -webkit-mask-image:linear-gradient(
-    to right,
-    rgba(0,0,0,0) 0%,
-    rgba(0,0,0,0.15) 30%,
-    rgba(0,0,0,1) 65%
-  );
-  mask-image:linear-gradient(
-    to right,
-    rgba(0,0,0,0) 0%,
-    rgba(0,0,0,0.15) 30%,
-    rgba(0,0,0,1) 65%
-  );
+  /* [핵심] 모바일과 PC 모두 동일하게 왼쪽은 투명, 오른쪽으로 갈수록 진해지는 페이드아웃 */
+  -webkit-mask-image: linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,0.15) 30%, rgba(0,0,0,1) 65%);
+  mask-image: linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,0.15) 30%, rgba(0,0,0,1) 65%);
 }
 
-.hero-warm{opacity:1}
-.hero-dark{
+.hero-feather{
+  display:none;
+}
+
+.hero-past{
+  opacity:1;
+  filter: sepia(30%) saturate(120%) brightness(100%);
+}
+
+.hero-present{
   opacity:0;
-  animation:warmToDark 10s ease-in-out infinite alternate;
+  filter: grayscale(80%) brightness(70%) contrast(120%);
+  animation: warmToDark 4s ease-in-out infinite alternate;
 }
 
 @keyframes warmToDark{
@@ -70,8 +70,8 @@ body{font-family:Arial,"Noto Sans KR",sans-serif}
   pointer-events:none;
   background:linear-gradient(
     to right,
-    rgba(21,19,19,0.9) 0%,
-    rgba(21,19,19,0.4) 40%,
+    rgba(21,19,19,0.95) 0%,
+    rgba(21,19,19,0.5) 45%,
     transparent 100%
   );
 }
@@ -101,11 +101,9 @@ body{font-family:Arial,"Noto Sans KR",sans-serif}
   text-shadow:0 2px 16px rgba(0,0,0,.52);
 }
 
-.hero-eyebrow,
-.story-label{
+.hero-eyebrow{
   margin:0 0 10px;
   font-size:12px;
-  font-weight:300;
   letter-spacing:4px;
   color:#d6b6ae;
 }
@@ -113,7 +111,7 @@ body{font-family:Arial,"Noto Sans KR",sans-serif}
 .hero-title{
   margin:0;
   font-family:Georgia,"Times New Roman",serif;
-  font-size:clamp(32px,4.6vw,66px);
+  font-size:clamp(28px,4.6vw,66px);
   line-height:1.28;
   font-weight:400;
   letter-spacing:-1px;
@@ -122,14 +120,14 @@ body{font-family:Arial,"Noto Sans KR",sans-serif}
 
 .hero-quote{
   margin:18px 0 0;
-  font-size:clamp(16px,1.5vw,22px);
+  font-size:clamp(15px,1.5vw,22px);
   line-height:1.7;
   color:#eadbd7;
 }
 
 .hero-desc{
   margin:14px 0 0;
-  font-size:clamp(13px,1.05vw,16px);
+  font-size:clamp(12px,1.05vw,16px);
   line-height:1.85;
   color:#cbbfbb;
 }
@@ -140,7 +138,10 @@ body{font-family:Arial,"Noto Sans KR",sans-serif}
 }
 
 .story-label{
-  margin-bottom:16px;
+  margin:0 0 16px;
+  font-size:12px;
+  letter-spacing:5px;
+  color:#aa8e87;
 }
 
 .story-title{
@@ -160,46 +161,27 @@ body{font-family:Arial,"Noto Sans KR",sans-serif}
   color:#bfb4af;
 }
 
+/* 모바일에서도 PC와 동일한 비율 구조 유지 (세로로 찌그러지거나 사진이 밀리지 않음) */
 @media(max-width:720px){
   .hero{
-    aspect-ratio:auto;
-    height:72vh;
-    min-height:560px;
+    aspect-ratio: 16/10; /* 모바일에서도 가로형 비율을 유지하여 왼쪽 여백과 오른쪽 사진 구조 고정 */
+    min-height: 380px;
   }
-
-  .hero-main{
-    -webkit-mask-image:linear-gradient(
-      to right,
-      rgba(0,0,0,0) 0%,
-      rgba(0,0,0,0.15) 25%,
-      rgba(0,0,0,1) 55%
-    );
-    mask-image:linear-gradient(
-      to right,
-      rgba(0,0,0,0) 0%,
-      rgba(0,0,0,0.15) 25%,
-      rgba(0,0,0,1) 55%
-    );
-  }
-
   .hero-copy{
-    left:7%;
-    right:7%;
-    bottom:20%;
-    width:auto;
+    left: 6%;
+    bottom: 15%;
+    width: 52%; /* 텍스트가 왼쪽 영역 안에 예쁘게 들어가도록 고정 */
   }
-
-  .hero-title{font-size:40px}
-  .story{padding:58px 7% 80px}
 }
 </style>
 </head>
 <body>
 
 <section class="hero">
-  <div class="hero-media">
-    <img class="hero-main hero-warm" src="./assets/hero-warm.png" alt="">
-    <img class="hero-main hero-dark" src="./assets/hero-dark.png" alt="">
+  <div class="src-media hero-media">
+    <!-- 비교를 위한 같은 사진 & 색감 차이 적용 -->
+    <img class="hero-past hero-main" src="./assets/hero-warm.png" alt="">
+    <img class="hero-present hero-main" src="./assets/hero-dark.png" alt="">
   </div>
 
   <div class="hero-tone"></div>
