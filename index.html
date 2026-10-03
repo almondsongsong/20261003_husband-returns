@@ -389,6 +389,16 @@ body.light .episodes details:hover summary{color:#80634f}
 .hero-copy{left:var(--page-gutter);width:min(520px,calc((100% - 2 * var(--page-gutter)) * .52))}
 .hero-media{inset:0 var(--page-gutter);width:calc(100% - 2 * var(--page-gutter))}
 @media(max-width:720px){.section,.topbar{padding-inline:var(--page-gutter)}.hero-copy{left:var(--page-gutter)}}
+
+/* STORY 소개는 가운데, 현재 관계는 사진 높이의 중앙에 정렬 */
+.story-intro{text-align:center}
+.story-intro .periods{margin-inline:auto}
+.story-intro .body-copy{margin-inline:auto}
+.story-present{margin-top:72px}
+.story-present .present-layout{align-items:center}
+.story-present .timeline li:last-child{padding-bottom:0}
+@media(max-width:720px){.story-present{margin-top:48px}}
+
 </style>
 </head>
 <body>
@@ -414,7 +424,6 @@ body.light .episodes details:hover summary{color:#80634f}
 
           <!-- <a href="https://almondsongsong.github.io/profile/">작품목록</a> -->
           <a href="#story">STORY</a>
-          <a href="#relationship">RELATIONSHIP</a>
           <a href="#character">CHARACTERS</a>
           <a href="#episode">EPISODES</a>
           <a href="#play-guide">PLAY GUIDE</a>
@@ -469,8 +478,9 @@ body.light .episodes details:hover summary{color:#80634f}
 </section>
 
 
-<!-- 02 STORY: 이미지 없이 텍스트 중심 -->
+<!-- STORY: 소개와 현재 관계 -->
 <section class="section" id="story">
+  <div class="story-intro">
   <p class="kicker">STORY</p>
   <h2 class="heading">한 사람에게는 어제였고,<br>한 사람에게는 이미 끝난 사랑.</h2>
   <div class="periods" aria-label="두 사람의 관계 기간">
@@ -484,11 +494,10 @@ body.light .episodes details:hover summary{color:#80634f}
     <p>그에게 당신은 여전히 아내다.<br>당신에게 그는 이미 떠나보낸 남편이다.</p>
     <p>잊은 사람과 잊지 못한 사람.<br>서로 다른 시간을 안고, 두 사람은 다시 마주한다.</p>
   </div>
-</section>
+  </div>
 
-<!-- 03 RELATIONSHIP / PRESENT: 현재 관계 이미지 + 타임라인 -->
-<section class="section" id="relationship">
-  <p class="kicker">RELATIONSHIP · PRESENT</p>
+  <!-- 현재 관계: STORY 안에서 이어지는 이미지와 타임라인 -->
+  <div id="relationship" class="story-present">
   <div class="present-layout">
     <div>
       <img class="relationship-image" src="https://almondsongsong.github.io/20261003_husband-returns/assets/서로째려보는.png" alt="서로를 마주 보며 긴장한 이도현과 당신" loading="lazy" width="887" height="1774">
@@ -503,6 +512,7 @@ body.light .episodes details:hover summary{color:#80634f}
         <li><small>NOW / PRESENT</small><h3>그만 모르는 이별</h3><p>사고 후 그는 행복했던 결혼을 기억한다. 당신은 이혼까지 기억한다. 다시 만났지만, 관계의 시작점은 다르다.</p></li>
       </ol>
     </div>
+  </div>
   </div>
 </section>
 
