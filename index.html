@@ -12,66 +12,57 @@ body{font-family:Arial,"Noto Sans KR",sans-serif}
 .hero{
   position:relative;
   width:100%;
-  min-height:760px;
-  height:88vh;
+  aspect-ratio:16/9;
+  min-height:420px;
   overflow:hidden;
   background:#151313;
 }
 
-/* 앱/웹 공통: 사진을 HERO 전체 배경으로 사용 */
 .hero-media{
-  position:absolute;
-  inset:0;
-  z-index:1;
-  overflow:hidden;
-}
-
-.hero-img{
   position:absolute;
   inset:0;
   width:100%;
   height:100%;
-  object-fit:cover;
-  object-position:72% center;
-  display:block;
+  z-index:1;
+  overflow:hidden;
 }
 
-/* warm ↔ dark 전환 */
+.hero-main{
+  position:absolute;
+  top:0;
+  right:0;
+  width:auto;
+  height:100%;
+  max-width:none;
+  object-fit:contain;
+  object-position:right center;
+  display:block;
+
+  -webkit-mask-image:linear-gradient(
+    to right,
+    rgba(0,0,0,0) 0%,
+    rgba(0,0,0,0.15) 30%,
+    rgba(0,0,0,1) 65%
+  );
+  mask-image:linear-gradient(
+    to right,
+    rgba(0,0,0,0) 0%,
+    rgba(0,0,0,0.15) 30%,
+    rgba(0,0,0,1) 65%
+  );
+}
+
 .hero-warm{opacity:1}
 .hero-dark{
   opacity:0;
   animation:warmToDark 10s ease-in-out infinite alternate;
 }
+
 @keyframes warmToDark{
   0%,30%{opacity:0}
   70%,100%{opacity:1}
 }
 
-/* 오른쪽 사진은 살리고 왼쪽으로 넓게 스며드는 블러/페이드 */
-.hero-media::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  z-index:3;
-  pointer-events:none;
-  background:
-    linear-gradient(
-      135deg,
-      rgba(21,19,19,1) 0%,
-      rgba(21,19,19,1) 25%,
-      rgba(21,19,19,.94) 34%,
-      rgba(21,19,19,.78) 42%,
-      rgba(21,19,19,.58) 50%,
-      rgba(21,19,19,.36) 58%,
-      rgba(21,19,19,.18) 66%,
-      rgba(21,19,19,.06) 73%,
-      rgba(21,19,19,0) 80%
-    );
-  backdrop-filter:blur(1.5px);
-  -webkit-backdrop-filter:blur(1.5px);
-}
-
-/* 전체 톤 */
 .hero-tone{
   position:absolute;
   inset:0;
@@ -79,40 +70,37 @@ body{font-family:Arial,"Noto Sans KR",sans-serif}
   pointer-events:none;
   background:linear-gradient(
     to right,
-    rgba(21,19,19,.16) 0%,
-    rgba(21,19,19,.10) 38%,
-    rgba(21,19,19,.03) 62%,
-    rgba(21,19,19,0) 82%
+    rgba(21,19,19,0.9) 0%,
+    rgba(21,19,19,0.4) 40%,
+    transparent 100%
   );
 }
 
-/* 하단 연결 */
 .hero-bottom-fade{
   position:absolute;
   left:0;
   right:0;
   bottom:0;
-  height:28%;
-  z-index:4;
+  height:34%;
+  z-index:3;
   pointer-events:none;
   background:linear-gradient(
     to bottom,
-    rgba(21,19,19,0) 0%,
-    rgba(21,19,19,.20) 32%,
-    rgba(21,19,19,.62) 70%,
+    transparent 0%,
+    rgba(21,19,19,.5) 50%,
     #151313 100%
   );
 }
 
-/* 텍스트를 사진 위에 겹침 */
 .hero-copy{
   position:absolute;
   left:7%;
   bottom:20%;
-  z-index:5;
-  width:min(560px,44vw);
-  text-shadow:0 2px 16px rgba(0,0,0,.54);
+  z-index:4;
+  width:min(520px,48%);
+  text-shadow:0 2px 16px rgba(0,0,0,.52);
 }
+
 .hero-eyebrow,
 .story-label{
   margin:0 0 10px;
@@ -121,21 +109,24 @@ body{font-family:Arial,"Noto Sans KR",sans-serif}
   letter-spacing:4px;
   color:#d6b6ae;
 }
+
 .hero-title{
   margin:0;
   font-family:Georgia,"Times New Roman",serif;
-  font-size:clamp(38px,4.2vw,66px);
+  font-size:clamp(32px,4.6vw,66px);
   line-height:1.28;
   font-weight:400;
   letter-spacing:-1px;
   color:#f3ece9;
 }
+
 .hero-quote{
   margin:18px 0 0;
-  font-size:clamp(16px,1.45vw,22px);
+  font-size:clamp(16px,1.5vw,22px);
   line-height:1.7;
   color:#eadbd7;
 }
+
 .hero-desc{
   margin:14px 0 0;
   font-size:clamp(13px,1.05vw,16px);
@@ -143,12 +134,15 @@ body{font-family:Arial,"Noto Sans KR",sans-serif}
   color:#cbbfbb;
 }
 
-/* STORY */
 .story{
   background:#151313;
   padding:72px 8% 100px;
 }
-.story-label{margin-bottom:16px}
+
+.story-label{
+  margin-bottom:16px;
+}
+
 .story-title{
   margin:0 0 22px;
   font-family:Georgia,"Times New Roman",serif;
@@ -157,6 +151,7 @@ body{font-family:Arial,"Noto Sans KR",sans-serif}
   font-weight:400;
   color:#f2ebe7;
 }
+
 .story-text{
   margin:0;
   max-width:640px;
@@ -165,35 +160,35 @@ body{font-family:Arial,"Noto Sans KR",sans-serif}
   color:#bfb4af;
 }
 
-/* 모바일도 같은 구성 유지 */
 @media(max-width:720px){
   .hero{
-    min-height:620px;
-    height:78vh;
+    aspect-ratio:auto;
+    height:72vh;
+    min-height:560px;
   }
-  .hero-img{
-    object-position:68% center;
+
+  .hero-main{
+    -webkit-mask-image:linear-gradient(
+      to right,
+      rgba(0,0,0,0) 0%,
+      rgba(0,0,0,0.15) 25%,
+      rgba(0,0,0,1) 55%
+    );
+    mask-image:linear-gradient(
+      to right,
+      rgba(0,0,0,0) 0%,
+      rgba(0,0,0,0.15) 25%,
+      rgba(0,0,0,1) 55%
+    );
   }
-  .hero-media::after{
-    background:
-      linear-gradient(
-        135deg,
-        rgba(21,19,19,1) 0%,
-        rgba(21,19,19,1) 18%,
-        rgba(21,19,19,.96) 28%,
-        rgba(21,19,19,.82) 38%,
-        rgba(21,19,19,.58) 48%,
-        rgba(21,19,19,.34) 58%,
-        rgba(21,19,19,.16) 68%,
-        rgba(21,19,19,0) 78%
-      );
-  }
+
   .hero-copy{
     left:7%;
     right:7%;
-    bottom:18%;
+    bottom:20%;
     width:auto;
   }
+
   .hero-title{font-size:40px}
   .story{padding:58px 7% 80px}
 }
@@ -203,8 +198,8 @@ body{font-family:Arial,"Noto Sans KR",sans-serif}
 
 <section class="hero">
   <div class="hero-media">
-    <img class="hero-img hero-warm" src="./assets/hero-warm.png" alt="">
-    <img class="hero-img hero-dark" src="./assets/hero-dark.png" alt="">
+    <img class="hero-main hero-warm" src="./assets/hero-warm.png" alt="">
+    <img class="hero-main hero-dark" src="./assets/hero-dark.png" alt="">
   </div>
 
   <div class="hero-tone"></div>
